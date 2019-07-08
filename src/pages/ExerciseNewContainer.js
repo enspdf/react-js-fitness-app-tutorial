@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import FatalError from './500';
 import ExerciseNew from './ExerciseNew';
+import url from '../config';
 
 class ExerciseNewContainer extends Component {
     state = {
@@ -42,8 +42,8 @@ class ExerciseNewContainer extends Component {
                 body: JSON.stringify(this.state.form)
             }
 
-            let res = await fetch('http://localhost:8000/api/exercises', config);
-            let json = await res.json();
+            let res = await fetch(`${url}/exercises`, config);
+            await res.json();
 
             this.setState({
                 loading: false
